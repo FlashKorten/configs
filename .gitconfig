@@ -1,0 +1,15 @@
+[user]
+    email = Sebastian.Korten@neuland-bfi.de
+    name = Sebastian Korten
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+[alias]
+    br = branch
+    co = checkout
+    s  = status
+    wd  = diff --word-diff=color
+    swd  = show --word-diff=color
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
