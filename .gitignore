@@ -1,0 +1,13 @@
+*
+!.gitconfig
+!.gitignore
+!.profile
+!README.md
+!.tmux.conf
+!.vim/
+!.vim/*
+!vim-pathogen/
+!vim-pathogen/*
+!.vimrc
+!.xmonad/
+!.xmonad/*
