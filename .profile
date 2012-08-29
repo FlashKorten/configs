@@ -26,3 +26,4 @@ export TERM="xterm-256color"
 export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 set -o vi
 bind -m vi-command ".":insert-last-argument
+alias tmux='tmux -2'
