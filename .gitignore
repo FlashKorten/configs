@@ -4,6 +4,7 @@
 !.profile
 !README.md
 !.tmux.conf
+!updateGitRepositories.sh
 !.vim/
 !.vim/*
 !vim-pathogen/
