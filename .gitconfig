@@ -1,15 +1,51 @@
 [user]
-    email = Sebastian.Korten@neuland-bfi.de
-    name = Sebastian Korten
+  email = Sebastian.Korten@neuland-bfi.de
+  name = Sebastian Korten
 [color]
-    branch = auto
-    diff = auto
-    interactive = auto
-    status = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[core]
+	autocrlf = input
+[push]
+  default = current
 [alias]
-    br = branch
-    co = checkout
-    s  = status
-    wd  = diff --word-diff=color
-    swd  = show --word-diff=color
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  br = branch
+  co = checkout
+  s  = status
+  wd  = diff --word-diff=color
+  swd  = show --word-diff=color
+  ; pretty log
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  ; list in short form
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ; list including file changes
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ; list with short date
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  ; list with relative date
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  ;
+  le = log --oneline --decorate
+  ; show commitc related to a file (filelog)
+  fl = log -u
+  ; show modified files in last commit
+  lf = "!git ll -1"
+  ; diff what is to be committed
+  dc = diff --cached
+  ; diff last commit
+  dlc = diff --cached HEAD^
+  ; show full diff of revision
+  dr  = "!f() { git diff "$1"^.."$1";  }; f"
+  lc  = "!f() { git ll "$1"^.."$1";  }; f"
+  ; find filepath in codebase
+  f = "!git ls-files | grep -i"
+  ; grep entire codebase for string
+  gr = grep -Ii
+  ; list all aliases
+  la = "!git config -l | grep alias | cut -c 7-"
+  ;
+  rh = reset --hard
+  st = stash
+  sa = stash apply

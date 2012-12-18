@@ -3,6 +3,8 @@ if exists("misc_after_haskell")
 endif
 let misc_after_haskell = 1
 
+setlocal omnifunc=necoghc#omnifunc
+
 function! OpenHaskellFile()
   let f = tr(matchstr(getline(line('.')), '\(import\s*qualified\|import\)\s*\zs[A-Za-z0-9.]\+'), ".", "/") . ".hs"
   if f == ".hs"
@@ -26,7 +28,12 @@ function! OpenHaskellFile()
   endif
 endfunction
 
-:map <silent> ghf :call OpenHaskellFile()<CR>
+nnoremap <silent> ghf :call OpenHaskellFile()<CR>
+nnoremap <leader>h :Hoogle 
+nnoremap <silent><leader>H :HoogleClose<CR>
+
+let g:syntastic_haskell_checker_args =
+  \ '--hlintOpt="--ignore=Use import/export shortcut" --ghcOpt="-fno-warn-name-shadowing"'
 
 if executable('lushtags')
     let g:tagbar_type_haskell = {
