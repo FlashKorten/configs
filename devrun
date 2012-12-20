@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ `which fast-tags` ]; then
+    fast-tags $(find . -name "*.hs")
+fi
+
+if [ $1 ]; then
+    cabal-dev install && cabal-dev/bin/$1
+else
+    cabal-dev install
+fi
